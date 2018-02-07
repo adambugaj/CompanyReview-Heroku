@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import ReviewList from './create-page/ReviewList';
 import UserDashboard from '.././components/dashboard/UserDashboard';
 import LoginHeader from './test/LoginHeader';
+import CreateReviewButton from './create-page/CreateReviewButton';
 
 // Component for main site
 const MainPage = (props) => {
             console.log('PROPS:', props.review);
     return (
       <div>
-        <LoginHeader/>
+        <LoginHeader />
         <h1>{}</h1>
         { props.review.map((rev) => {
           return <ReviewList key={rev.q1 + Math.random()}{...rev} />
@@ -19,6 +20,7 @@ const MainPage = (props) => {
           // Check if a review is added if not, prevent from adding an empty review
           !props.review && <ReviewList/>
         }
+        <CreateReviewButton />
       </div>
     )
   }

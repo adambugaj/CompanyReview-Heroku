@@ -9,12 +9,10 @@ const CreateReviewPage = (props) => {
       <h1>Review Company Form</h1>
       <ReviewForm
         onSubmit={(review) => {
-          console.log(review, props.review);
           // Be sure what you type as Parameter, don't use destructuring ({})
 
           props.dispatch(addReview(review))
           props.history.push('/');
-          console.log(props.review);
         }}
       />
     </div>

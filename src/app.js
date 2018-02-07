@@ -6,9 +6,7 @@ import { addReview } from './actions/review-generators';
 import CRAppRouter from './routers/CRAppRouter';
 import configureStore from './store/configureStore';
 import { removeReview } from './actions/review-generators';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import MyAwesomeReactComponent from './material/MyAwesomeReactComponent';
-
+import './styles/styles.scss';
 
 const store = configureStore();
 console.log('test');
