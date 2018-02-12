@@ -8,10 +8,11 @@ export default () => {
   return (
     <div className="createButton">
       <MuiThemeProvider>
-        <FloatingActionButton><Link to="/create-company-review">
+        <Link to="/create-company-review">
+        <FloatingActionButton>
           <ContentAdd />
-        </Link>
         </FloatingActionButton>
+        </Link>
       </MuiThemeProvider>
     </div>
   );
