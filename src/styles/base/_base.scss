@@ -1,12 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
 body {
   font-family: Helvetica, Arial, sans-serif;
 }
 
 .createButton {
-  margin-left: 75% !important;
-  margin-top: 100% !important;
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-top: 5rem;
 }
+
 .createLogin {
-    width: 50% !important;
-    margin: 0 auto !important;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
   }

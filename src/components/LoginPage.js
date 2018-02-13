@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
-
+import Subheader from 'material-ui/Subheader';
 
 // Component for login form
 class LoginPage extends React.Component {
@@ -59,10 +59,8 @@ constructor(props) {
   render() {
     return (
       <div>
-        <h2>Log In</h2>
-
         <MuiThemeProvider>
-          <div>
+          <div className="login-fields">
             <form onSubmit={this.onSubmit}>
             <TextField
               type="text"

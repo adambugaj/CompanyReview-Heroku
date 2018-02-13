@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const LoginButton = () => {
   return (
-    <div >
+    <div className="createLogin">
       <Link to="/login"><RaisedButton className="createLogin" label="LOGIN"/></Link>
       <Link to="/login"><RaisedButton className="createLogin" label="SIGNUP"/></Link>
     </div>

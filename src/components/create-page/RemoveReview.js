@@ -14,7 +14,7 @@ const RemoveReview = (props) => {
       <MuiThemeProvider>
         <Card>
           <CardHeader
-            title={props.review[0].companyName}
+            title="Name"
             actAsExpander={true}
             showExpandableButton={true}
           />
