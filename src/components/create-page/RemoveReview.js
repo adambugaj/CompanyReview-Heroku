@@ -7,6 +7,7 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+// we use reviewlist instead of this component
 const RemoveReview = (props) => {
   return (
     <div>
@@ -14,7 +15,6 @@ const RemoveReview = (props) => {
       <MuiThemeProvider>
         <Card>
           <CardHeader
-            title="Name"
             actAsExpander={true}
             showExpandableButton={true}
           />

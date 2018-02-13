@@ -1,0 +1,26 @@
+.createButton {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  margin-top: 5rem;
+}
+
+.createLogin {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  }
+
+.create-card {
+  align-items: space-around;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 auto ;
+}
+
+.create-card1 {
+  display: block;
+  margin-top: 1rem;
+}
