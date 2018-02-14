@@ -22,7 +22,9 @@ constructor(props) {
       password: this.usernameTest.password,
       checkUsername: '',
       checkPassword: '',
-      registerInfo: ''
+      registerInfo: '',
+      changeColor: '',
+      registerSuccess: ''
     };
   }
 
@@ -38,21 +40,24 @@ constructor(props) {
   };
 
   onSubmit = (e) => {
-    console.log(this.state.username);
     e.preventDefault();
-    console.log(!this.state.checkPassword);
     // Check if empty and show message
     if (!this.state.checkUsername || !this.state.checkPassword) {
     this.setState(() => ({registerInfo: 'Please type a username and password'}));
   } // Push to main page if username and pass is correct
    else if (this.state.checkUsername === this.state.username && this.state.checkPassword === this.state.password) {
-    this.setState(() => ({registerInfo: 'Login Succeesful'}));
+    this.setState(() => ({
+      registerInfo: '',
+      registerSuccess: 'Login Succeesful',
+      changeColor: 'green'
+    }));
     setTimeout(() => {
     this.props.history.push(`/dashboard/${this.state.username}`);
   }, 800)
   } // Check if wrong and show message
   else {
     this.setState(() => ({registerInfo: 'Wrong username or password'}));
+    console.log(this.state.registerInfo);
   }
   };
 
@@ -66,25 +71,33 @@ constructor(props) {
               type="text"
               floatingLabelText="Username: user"
               autoFocus
+
+              underlineStyle={this.state.changeColor && {borderColor: '#E0E0E0'} || {borderColor: '#E0E0E0'}}
+
               floatingLabelFixed={true}
               value={this.state.q1}
+              errorText={
+                this.state.registerInfo &&
+                <span></span>
+              }
               onChange={this.onUsernameChange}
             /> <br />
             <TextField
-              type="text"
+              type="Password"
               floatingLabelText="Password: test"
-              autoFocus
               floatingLabelFixed={true}
+              underlineStyle={this.state.changeColor && {borderColor: '#E0E0E0'} || {borderColor: '#E0E0E0'}}
               value={this.state.q1}
+              errorText={
+                this.state.registerInfo && this.state.registerInfo
+              }
               onChange={this.onPasswordChange}
             /> <br />
-            <FlatButton type="submit" label="Login" />
-            <Link to="/"><FlatButton type="submit" label="Test" /></Link>
+            <div className="button-login-container">
+              <FlatButton type="submit" label="Login" />
+              <Link to="/"><FlatButton type="submit" label="Test" /></Link>
+            </div>
             </form>
-            {
-              this.state.registerInfo &&
-              <p>{this.state.registerInfo}</p>
-            }
           </div>
         </MuiThemeProvider>
       </div>

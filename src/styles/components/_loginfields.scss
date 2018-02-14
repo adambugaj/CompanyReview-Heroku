@@ -5,3 +5,13 @@
   margin-top: 5rem;
 
 }
+
+.button-login-container {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-fields__error {
+  border-color: green !important;
+}
