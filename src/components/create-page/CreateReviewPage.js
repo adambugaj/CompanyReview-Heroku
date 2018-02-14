@@ -6,7 +6,6 @@ import { addReview } from '../../actions/review-generators';
 const CreateReviewPage = (props) => {
   return (
     <div>
-      <h1>Review Company Form</h1>
       <ReviewForm
         onSubmit={(review) => {
           // Be sure what you type as Parameter, don't use destructuring ({})

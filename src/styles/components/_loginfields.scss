@@ -12,6 +12,12 @@
   justify-content: space-between;
 }
 
-.login-fields__error {
-  border-color: green !important;
+@media (max-width: $desktop-breakpoint) {
+  .login-fields {
+    width: 500px !important;
+    margin: auto;
+  }
+  .login-fields1 {
+    width: 30rem !important;
+  }
 }

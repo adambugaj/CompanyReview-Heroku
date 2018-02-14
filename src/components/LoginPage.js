@@ -7,6 +7,11 @@ import FlatButton from 'material-ui/FlatButton';
 import Chip from 'material-ui/Chip';
 import Subheader from 'material-ui/Subheader';
 
+
+const cardStyle = {
+    width: '30vw'
+};
+
 // Component for login form
 class LoginPage extends React.Component {
 constructor(props) {
@@ -71,9 +76,9 @@ constructor(props) {
               type="text"
               floatingLabelText="Username: user"
               autoFocus
-
+              style={cardStyle}
               underlineStyle={this.state.changeColor && {borderColor: '#E0E0E0'} || {borderColor: '#E0E0E0'}}
-
+              className="login-fields1"
               floatingLabelFixed={true}
               value={this.state.q1}
               errorText={
@@ -86,8 +91,10 @@ constructor(props) {
               type="Password"
               floatingLabelText="Password: test"
               floatingLabelFixed={true}
+              className="login-fields1"
               underlineStyle={this.state.changeColor && {borderColor: '#E0E0E0'} || {borderColor: '#E0E0E0'}}
               value={this.state.q1}
+              style={cardStyle}
               errorText={
                 this.state.registerInfo && this.state.registerInfo
               }

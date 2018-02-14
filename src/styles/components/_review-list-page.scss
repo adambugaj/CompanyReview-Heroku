@@ -24,3 +24,15 @@
   display: block;
   margin-top: 1rem;
 }
+
+._review-list__buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .create-card2 {
+    height: auto;
+  }
+}

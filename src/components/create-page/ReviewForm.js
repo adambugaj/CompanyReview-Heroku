@@ -81,7 +81,8 @@ class ReviewForm extends React.Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <MuiThemeProvider>
-            <div>
+            <div className="review-form">
+              <h1>Review Company Form</h1>
             <TextField
               type="text"
               floatingLabelText="Company Name"
@@ -122,7 +123,6 @@ class ReviewForm extends React.Component {
             />
               <p>Review Score: {this.state.shortNote}</p>
             <FlatButton type="submit" label="Submit" />
-
             </div>
           </MuiThemeProvider>
         </form>
