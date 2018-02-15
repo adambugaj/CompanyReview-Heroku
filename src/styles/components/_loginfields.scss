@@ -13,11 +13,9 @@
 }
 
 @media (max-width: $desktop-breakpoint) {
-  .login-fields {
-    width: 500px !important;
-    margin: auto;
-  }
   .login-fields1 {
-    width: 30rem !important;
+    display: flex;
+    width: 60vw !important;
+
   }
 }

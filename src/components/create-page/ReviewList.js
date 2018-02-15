@@ -8,7 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 const cardStyle = {
-    width: '50vw'
+    width: '70%'
 };
 
 const removeStyle = {
@@ -22,7 +22,7 @@ const ReviewList = ({companyName, q1, q2}) => {
     <div>
       <MuiThemeProvider>
         <div className="create-card">
-        <Card className="create-card2" style={cardStyle}>
+        <Card className="review-form_mobile" style={cardStyle}>
           <CardHeader
             title={companyName}
             actAsExpander={true}
