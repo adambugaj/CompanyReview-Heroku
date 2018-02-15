@@ -18,7 +18,7 @@ const removeStyle = {
   'flexDirection': 'row'
 }
 
-const ReviewList = ({companyName, q1, q2, }) => {
+const ReviewList = ({companyName, q1, q2, q3, shortNote}) => {
   return (
     <div>
       <MuiThemeProvider>
@@ -31,10 +31,10 @@ const ReviewList = ({companyName, q1, q2, }) => {
           />
           <CardText expandable={true}>
             <div className="answers-list">
-              <p>Home-office days: {q1}</p>
-              <p>Learning days: {q2}</p>
-              <p>Wage amount:</p>
-              <p>Your opinion:</p>
+              <p>Home-office days: <span>{q1}</span></p>
+              <p>Learning days: <span>{q2}</span></p>
+              <p>Wage amount: <span>{q3}</span></p>
+              <p>Your opinion: <span>{shortNote}</span></p>
             </div>
           </CardText>
             <div className="_review-list__buttons">

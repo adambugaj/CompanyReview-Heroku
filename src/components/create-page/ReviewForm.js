@@ -17,10 +17,10 @@ class ReviewForm extends React.Component {
       }),
       q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
-      q3: '',
-      q4: '',
-      q5: '',
-      shortNote: ''
+      q3: props.review ? props.review.q3 : '',
+      q4: props.review ? props.review.q4 : '',
+      q5: props.review ? props.review.q5 : '',
+      shortNote: props.review ? props.review.shortNote : ''
     };
   };
 

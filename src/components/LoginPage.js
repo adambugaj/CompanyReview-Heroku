@@ -9,7 +9,7 @@ import Subheader from 'material-ui/Subheader';
 
 
 const cardStyle = {
-    width: '30vw'
+    width: '40rem'
 };
 
 // Component for login form
