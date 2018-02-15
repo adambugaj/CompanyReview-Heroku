@@ -88,14 +88,14 @@ class ReviewForm extends React.Component {
               floatingLabelText="Company Name"
               floatingLabelFixed={true}
               autoFocus
-              style={{width: '70%'}}
+              style={{width: '80%'}}
               className="review-form_mobile"
               value={this.state.companyName}
               onChange={this.onCompanyName}
             /> <br />
             <TextField
               type="text"
-              style={{width: '70%'}}
+              style={{width: '80%'}}
               className="review-form_mobile"
               floatingLabelText="Number of home-office days"
               floatingLabelFixed={true}
@@ -104,16 +104,16 @@ class ReviewForm extends React.Component {
             /> <br />
             <TextField
               type="text"
-              style={{width: '70%'}}
+              style={{width: '80%'}}
               className="review-form_mobile"
-              floatingLabelText="Days for learning"
+              floatingLabelText="Number of days for learning"
               floatingLabelFixed={true}
               value={this.state.q2}
               onChange={this.onChangeQ2}
             /> <br />
             <TextField
               type="text"
-              style={{width: '70%'}}
+              style={{width: '80%'}}
               className="review-form_mobile"
               floatingLabelText="Wage amount"
               floatingLabelFixed={true}
@@ -122,7 +122,7 @@ class ReviewForm extends React.Component {
             /> <br />
             <TextField
               type="text"
-              style={{width: '70%'}}
+              style={{width: '80%'}}
               className="review-form_mobile"
               floatingLabelText="Type down what you think"
               multiLine={true}
