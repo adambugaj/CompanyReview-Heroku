@@ -18,7 +18,7 @@ const removeStyle = {
   'flexDirection': 'row'
 }
 
-const ReviewList = ({companyName, q1, q2, q3, shortNote}) => {
+const ReviewList = ({companyName, q1, q2, q3, shortNote, checkboxEnglish, checkboxGerman}) => {
   console.log(companyName);
   const companyNameLowerCase = companyName.toLowerCase();
   return (
@@ -36,6 +36,8 @@ const ReviewList = ({companyName, q1, q2, q3, shortNote}) => {
               <p>Home-office days: <span>{q1}</span></p>
               <p>Learning days: <span>{q2}</span></p>
               <p>Wage amount: <span>{q3}</span></p>
+              <p>English enviroment: <span>{checkboxEnglish}</span></p>
+              <p>German required: <span>{checkboxGerman}</span></p>
               <p>Your opinion: <span>{shortNote}</span></p>
             </div>
           </CardText>

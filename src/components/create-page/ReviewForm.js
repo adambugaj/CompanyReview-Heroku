@@ -1,8 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Checkbox from 'material-ui/Checkbox';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
+import { editReview } from '../../actions/review-generators';
 
 // Component for creating new company review
 class ReviewForm extends React.Component {
@@ -18,16 +21,15 @@ class ReviewForm extends React.Component {
       q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
       q3: props.review ? props.review.q3 : '',
-      q4: props.review ? props.review.q4 : '',
-      q5: props.review ? props.review.q5 : '',
-      shortNote: props.review ? props.review.shortNote : ''
+      shortNote: props.review ? props.review.shortNote : '',
+      checkboxEnglish: props.review ? props.review.checkboxEnglish : 'No',
+      checkboxGerman: props.review ? props.review.checkboxEnglish : 'No'
     };
   };
 
   // Functions to handle every question in a review form
   onCompanyName = (e) => {
     const getCompanyName = e.target.value;
-
     this.setState(() => ({companyName: getCompanyName}));
   }
 
@@ -63,17 +65,49 @@ class ReviewForm extends React.Component {
   // From create review page
   onSubmit = (e) => {
     e.preventDefault();
+    console.log(this.props, this.state);
     this.props.onSubmit({
       companyName: this.state.companyName,
       q1:this.state.q1,
       q2:this.state.q2,
       q3:this.state.q3,
-      q4:this.state.q4,
-      q5:this.state.q5,
-      shortNote:this.state.shortNote
-
+      shortNote:this.state.shortNote,
+      checkboxEnglish:this.state.checkboxEnglish,
+      checkboxGerman:this.state.checkboxGerman
     });
+    //   return this.props.reviewCompare.map((companyName, props) => {
+    //     console.log(companyName !== this.state.companyName);
+    //     console.log(companyName, this.state.companyName);
+    //       if (companyName !== this.state.companyName) {
+    //         this.props.dispatch(editReview(props.review.companyName, review))
+    //         this.props.history.push('/')
+    //       } else {
+    //         console.log("error");
+    //     }
+    // });
   };
+
+  state = {
+    checked: false,
+    checkedForGerman: false,
+  }
+// we use bind to connect data with a component
+  updateCheck = () => {
+    this.setState((oldState) => {
+      return {
+        checked: !oldState.checked,
+        checkboxEnglish: 'Yes',
+      };
+    });
+  }
+  updateCheckForGerman = () => {
+    this.setState((oldState) => {
+      return {
+        checkedForGerman: !oldState.checkedForGerman,
+        checkboxGerman: 'Yes',
+      }
+    })
+  }
 
   render() {
     return (
@@ -81,7 +115,6 @@ class ReviewForm extends React.Component {
         <form onSubmit={this.onSubmit}>
           <MuiThemeProvider>
             <div className="review-form">
-              <h1>Review Company Form</h1>
             <TextField
               type="text"
               floatingLabelText="Company Name"
@@ -130,6 +163,21 @@ class ReviewForm extends React.Component {
               value={this.state.shortNote}
               onChange={this.onChangeNote}
             />
+              <Checkbox
+                label="English enviroment"
+                checked={this.state.checked}
+                onCheck={this.updateCheck.bind(this)}
+                value='1'
+                className="checkbox-container"
+              />
+              <Checkbox
+                label="German required"
+                checked={this.state.checkedForGerman}
+                onCheck={this.updateCheckForGerman.bind(this)}
+                value='1'
+                className="checkbox-container"
+              />
+
               <p>Review Score: {this.state.shortNote}</p>
             <FlatButton type="submit" label="Submit" />
             </div>
@@ -140,4 +188,13 @@ class ReviewForm extends React.Component {
   }
 };
 
-export default ReviewForm;
+const mapStateToProps = (state, props) => {
+  return {
+    reviewCompare: state.reviewReducer.map((review) => {
+      console.log(review.companyName);
+      return review.companyName;
+    })
+  };
+};
+
+export default connect(mapStateToProps)(ReviewForm);

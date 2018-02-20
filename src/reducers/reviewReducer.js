@@ -19,8 +19,8 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
       });
     case 'EDIT_REVIEW':
       return state.map((company) => {
-        console.log(company);
-        console.log(...action, ...state);
+        console.log(action.companyName);
+        console.log(state);
         if (company.companyName === action.companyName) {
           return {
             ...company,

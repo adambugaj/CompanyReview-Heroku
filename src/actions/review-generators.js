@@ -4,9 +4,9 @@ const addReview = ({
   q1 = '',
   q2 = '',
   q3 = '',
-  q4 = '',
-  q5 = '',
-  shortNote = ''
+  shortNote = '',
+  checkboxEnglish = '',
+  checkboxGerman = ''
 } = {}
 ) => ({
   type: "ADD_REVIEW",
@@ -15,9 +15,9 @@ const addReview = ({
     q1,
     q2,
     q3,
-    q4,
-    q5,
-    shortNote
+    shortNote,
+    checkboxEnglish,
+    checkboxGerman
   }
 });
 

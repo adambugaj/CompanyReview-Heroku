@@ -32,5 +32,4 @@ const MainPage = (props) => {
     };
   }
 
-
 export default connect(mapStateToProps)(MainPage);
