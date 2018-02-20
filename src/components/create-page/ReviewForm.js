@@ -62,7 +62,6 @@ class ReviewForm extends React.Component {
   };
   // From create review page
   onSubmit = (e) => {
-    console.log(this.state.companyName);
     e.preventDefault();
     this.props.onSubmit({
       companyName: this.state.companyName,

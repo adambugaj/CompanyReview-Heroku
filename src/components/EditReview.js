@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ReviewForm from './create-page/ReviewForm'
+import ReviewForm from './create-page/ReviewForm';
+import { editReview } from '../actions/review-generators';
 
 
 const EditReview = (props) => {
-  console.log(props.review);
   return (
     <div>
       <h2>Edit Review</h2>
       <p>You are editing <strong>{props.review.companyName}</strong> review</p>
       <ReviewForm
         review={props.review}
+        onSubmit={(review) => {
+            console.log(props.review.companyName);
+          props.dispatch(editReview(props.review.companyName, review));
+          props.history.push('/')
+        }}
       />
     </div>
   );

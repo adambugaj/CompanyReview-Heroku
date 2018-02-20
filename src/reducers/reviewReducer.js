@@ -14,9 +14,23 @@ const reviewReducer = (state = reviewReducerDefaultState, action) => {
     // remember about return in every method you use!!
     // you can do it with filter((review.companyName) => {}) - without destructuring, there is two options, just to know it :)
       return state.filter(({companyName}) => {
-        console.log(companyName, action.companyName);
+        console.log(...action, ...state);
         return companyName !== action.companyName;
       });
+    case 'EDIT_REVIEW':
+      return state.map((company) => {
+        console.log(company);
+        console.log(...action, ...state);
+        if (company.companyName === action.companyName) {
+          return {
+            ...company,
+            ...action.updates
+          };
+        } else {
+          return company
+          }
+      });
+
     default:
       return state;
   }

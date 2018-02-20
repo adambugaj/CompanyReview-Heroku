@@ -29,7 +29,7 @@ const removeReview = ({companyName} = {}) => ({
 });
 
 // Action Generator - edit what is needed in a review
-const editReview = ({companyName, updates} = {}) => ({
+const editReview = (companyName, updates) => ({
   type: 'EDIT_REVIEW',
   companyName,
   updates
