@@ -5,12 +5,12 @@ import Subheader from 'material-ui/Subheader';
 
 const HeaderComponent = () => {
   return (
-    <div>
+    <div className="header-container">
       <AppBar
-        title="Company Review App"
+        title="Company Review app"
         iconClassNameRight="muidocs-icon-navigation-expand-more"
       />
-      <Subheader inset={true}>The big App is comming</Subheader>
+      <Subheader className="header-container__subheader" inset={true}>Save reviews of interviews with CRa</Subheader>
     </div>
   );
 }

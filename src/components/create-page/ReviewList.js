@@ -19,6 +19,8 @@ const removeStyle = {
 }
 
 const ReviewList = ({companyName, q1, q2, q3, shortNote}) => {
+  console.log(companyName);
+  const companyNameLowerCase = companyName.toLowerCase();
   return (
     <div>
       <MuiThemeProvider>
@@ -38,7 +40,7 @@ const ReviewList = ({companyName, q1, q2, q3, shortNote}) => {
             </div>
           </CardText>
             <div className="_review-list__buttons">
-              <Link to={`/edit/${companyName}`}>
+              <Link to={`/edit/${companyNameLowerCase}`}>
                 <FlatButton label="Edit"/>
               </Link>
               <RemoveReview />

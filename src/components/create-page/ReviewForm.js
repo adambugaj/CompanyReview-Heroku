@@ -71,7 +71,7 @@ class ReviewForm extends React.Component {
       q3:this.state.q3,
       q4:this.state.q4,
       q5:this.state.q5,
-      shortNote: this.state.shortNote
+      shortNote:this.state.shortNote
 
     });
   };
@@ -128,7 +128,7 @@ class ReviewForm extends React.Component {
               multiLine={true}
               floatingLabelFixed={true}
               rows={2}
-              value={this.state.note}
+              value={this.state.shortNote}
               onChange={this.onChangeNote}
             />
               <p>Review Score: {this.state.shortNote}</p>

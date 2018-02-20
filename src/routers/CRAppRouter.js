@@ -7,6 +7,7 @@ import MainPage from '.././components/MainPage';
 import PageNotExisted from '.././components/PageNotExisted';
 import ReviewList from '.././components/create-page/ReviewList';
 import UserDashboard from '.././components/dashboard/UserDashboard';
+import EditReview from '../components/EditReview';
 
 class CRAppRouter extends React.Component {
   render() {
@@ -19,7 +20,7 @@ class CRAppRouter extends React.Component {
             <Route path="/dashboard/:username" component={UserDashboard}/>
             <Route path="/login" component={LoginPage}/>
             <Route path="/create-company-review" component={CreateReviewPage}/>
-            <Route component={ReviewList}/>
+            <Route path="/edit/:id" component={EditReview}/>
           </Switch>
         </div>
       </BrowserRouter>
