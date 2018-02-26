@@ -25,7 +25,7 @@ const addReview = ({
 
 // Action Generator - remove existed company review by clicking a button
 // this is made for action in reducers
-const removeReview = ({companyNamesd} = {}) => ({
+const removeReview = ({companyName} = {}) => ({
   type: 'REMOVE_REVIEW',
   companyName
 });

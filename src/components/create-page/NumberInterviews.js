@@ -9,12 +9,15 @@ const cardStyle = {
 
 const NumberInterviews = (props) => {
   console.log(props.reviewTotal.length);
-
+// Right spelling with one function
 const spellItRight = () => {
+  console.log(props.reviewGerman.length);
   if (props.reviewGerman.length < 1) {
-    return "None company require german skills"
-  } else if ( props.reviewGerman.length = 1) {
-    return "1 company require german skills"
+    return "No company requires german skills";
+  } else if ( props.reviewGerman.length === 1 ) {
+    return "1 company requires german skills";
+  } else {
+    return `${props.reviewGerman.length} companies require german skills`;
   }
 }
 
