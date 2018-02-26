@@ -9,21 +9,32 @@ import { editReview } from '../../actions/review-generators';
 
 // Component for creating new company review
 class ReviewForm extends React.Component {
+
+  setCheckbox = () => {
+    console.log(this.props, this.state.checkedEnglish);
+    return false;
+  }
+
   constructor(props) {
     super(props);
-  // Object for storing answers
+    // Object for storing answers
+
     this.state = {
-      companyName: props.review ? props.review.companyName : 'Capgemini' ||
+      companyName: props.review ? props.review.companyName : 'Capgemini',
       // it doesn't run, check how to make condition to not add the same company name, the actual idea - make a good validation
-       state.review.map((companyName) => {
-        return companyName === this.state.companyName ? 'TRUE' : 'FALSE';
-      }),
+      //   state = (companyName) => {
+      //    console.log(this.props);
+      //   return companyName === this.state.companyName ? 'TRUE' : 'FALSE';
+      // }),
       q1: props.review ? props.review.q1 : '',
       q2: props.review ? props.review.q2 : '',
       q3: props.review ? props.review.q3 : '',
       shortNote: props.review ? props.review.shortNote : '',
       checkboxEnglish: props.review ? props.review.checkboxEnglish : 'No',
-      checkboxGerman: props.review ? props.review.checkboxEnglish : 'No'
+      //checkedEnglish: props.review ? props.review.checkboxEnglish : false,
+      checkedEnglish: (props.review === undefined) && false,
+      setCheckbox: this.setCheckbox(),
+      checkboxGerman: props.review ? props.review.checkboxGerman : 'No'
     };
   };
 
@@ -65,7 +76,7 @@ class ReviewForm extends React.Component {
   // From create review page
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.props, this.state);
+    console.log(this.state);
     this.props.onSubmit({
       companyName: this.state.companyName,
       q1:this.state.q1,
@@ -73,6 +84,7 @@ class ReviewForm extends React.Component {
       q3:this.state.q3,
       shortNote:this.state.shortNote,
       checkboxEnglish:this.state.checkboxEnglish,
+      checkedEnglish: this.state.checkedEnglish,
       checkboxGerman:this.state.checkboxGerman
     });
     //   return this.props.reviewCompare.map((companyName, props) => {
@@ -87,23 +99,24 @@ class ReviewForm extends React.Component {
     // });
   };
 
-  state = {
-    checked: false,
-    checkedForGerman: false,
-  }
+state = {
+  checkedEnglish: false
+}
 // we use bind to connect data with a component
-  updateCheck = () => {
-    this.setState((oldState) => {
+  updateCheck = (props) => {
+    this.setState((oldStateObject) => {
+      console.log(oldStateObject);
       return {
-        checked: !oldState.checked,
+        checkedEnglish: !oldStateObject.checkedEnglish,
         checkboxEnglish: 'Yes',
-      };
-    });
+      }
+      }
+    );
   }
   updateCheckForGerman = () => {
-    this.setState((oldState) => {
+    this.setState((oldStateObject) => {
       return {
-        checkedForGerman: !oldState.checkedForGerman,
+        checkedForGerman: !oldStateObject.checkedForGerman,
         checkboxGerman: 'Yes',
       }
     })
@@ -165,7 +178,7 @@ class ReviewForm extends React.Component {
             />
               <Checkbox
                 label="English enviroment"
-                checked={this.state.checked}
+                checked={this.state.checkedEnglish}
                 onCheck={this.updateCheck.bind(this)}
                 value='1'
                 className="checkbox-container"
@@ -193,7 +206,8 @@ const mapStateToProps = (state, props) => {
     reviewCompare: state.reviewReducer.map((review) => {
       console.log(review.companyName);
       return review.companyName;
-    })
+    }),
+    checkboxVal: false,
   };
 };
 

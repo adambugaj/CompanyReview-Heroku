@@ -6,6 +6,7 @@ const addReview = ({
   q3 = '',
   shortNote = '',
   checkboxEnglish = '',
+  checkedEnglish = false,
   checkboxGerman = ''
 } = {}
 ) => ({
@@ -17,13 +18,14 @@ const addReview = ({
     q3,
     shortNote,
     checkboxEnglish,
+    checkedEnglish,
     checkboxGerman
   }
 });
 
 // Action Generator - remove existed company review by clicking a button
 // this is made for action in reducers
-const removeReview = ({companyName} = {}) => ({
+const removeReview = ({companyNamesd} = {}) => ({
   type: 'REMOVE_REVIEW',
   companyName
 });

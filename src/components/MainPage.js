@@ -5,14 +5,16 @@ import ReviewList from './create-page/ReviewList';
 import UserDashboard from '.././components/dashboard/UserDashboard';
 import LoginHeader from './test/LoginHeader';
 import CreateReviewButton from './create-page/CreateReviewButton';
+import NumberInterviews from './create-page/NumberInterviews';
+
 
 // Component for main site
 const MainPage = (props) => {
-            console.log('PROPS:', props.review);
     return (
       <div>
         <LoginHeader />
         <h1>{}</h1>
+        <NumberInterviews />
         { props.review.map((rev) => {
           return <ReviewList key={rev.q1 + Math.random()}{...rev} />
         })}

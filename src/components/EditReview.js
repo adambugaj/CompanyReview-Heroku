@@ -13,6 +13,7 @@ const EditReview = (props, state) => {
       </div>
       <ReviewForm
         reviewCompare={props.reviewCompare}
+        checkboxVal={props.checkboxVal}
         review={props.review}
         onSubmit={(review) => {
           props.dispatch(editReview(props.review.companyName, review))
