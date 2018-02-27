@@ -11,7 +11,7 @@ const CreateReviewPage = (props) => {
       <ReviewForm
         onSubmit={(review) => {
           // Be sure what you type as Parameter, don't use destructuring ({})
-          props.dispatch(addReview(review))
+          props.dispatch(addReview(review));
           props.history.push('/');
         }}
       />

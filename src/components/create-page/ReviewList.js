@@ -65,6 +65,7 @@ const ReviewList = ({companyName, q1, q2, q3, shortNote, checkboxEnglish, checkb
 // }
 //
 
+
 export default ReviewList;
 
 // zapisuje 2 obiekty, ale 3 już nie, check and fix

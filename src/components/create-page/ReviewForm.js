@@ -11,7 +11,6 @@ import { editReview } from '../../actions/review-generators';
 class ReviewForm extends React.Component {
 
   setCheckbox = () => {
-    console.log(this.props, this.state.checkedEnglish);
     return false;
   }
 
@@ -34,13 +33,16 @@ class ReviewForm extends React.Component {
       //checkedEnglish: props.review ? props.review.checkboxEnglish : false,
       checkedEnglish: (props.review === undefined) && false,
       setCheckbox: this.setCheckbox(),
-      checkboxGerman: props.review ? props.review.checkboxGerman : 'No'
+      checkboxGerman: props.review ? props.review.checkboxGerman : 'No',
+      companyNameValid: props.review ? props.review.companyNameValid : true
     };
   };
 
   // Functions to handle every question in a review form
   onCompanyName = (e) => {
     const getCompanyName = e.target.value;
+    console.log(this.props.reviewCompare);
+
     this.setState(() => ({companyName: getCompanyName}));
   }
 
@@ -76,17 +78,18 @@ class ReviewForm extends React.Component {
   // From create review page
   onSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    this.props.onSubmit({
-      companyName: this.state.companyName,
-      q1:this.state.q1,
-      q2:this.state.q2,
-      q3:this.state.q3,
-      shortNote:this.state.shortNote,
-      checkboxEnglish:this.state.checkboxEnglish,
-      checkedEnglish: this.state.checkedEnglish,
-      checkboxGerman:this.state.checkboxGerman
-    });
+        this.props.onSubmit({
+          companyName: this.state.companyName,
+          q1:this.state.q1,
+          q2:this.state.q2,
+          q3:this.state.q3,
+          shortNote:this.state.shortNote,
+          checkboxEnglish:this.state.checkboxEnglish,
+          checkedEnglish: this.state.checkedEnglish,
+          checkboxGerman:this.state.checkboxGerman
+        });
+  };
+
     //   return this.props.reviewCompare.map((companyName, props) => {
     //     console.log(companyName !== this.state.companyName);
     //     console.log(companyName, this.state.companyName);
@@ -97,7 +100,7 @@ class ReviewForm extends React.Component {
     //         console.log("error");
     //     }
     // });
-  };
+
 
 state = {
   checkedEnglish: false
@@ -105,7 +108,6 @@ state = {
 // we use bind to connect data with a component
   updateCheck = (props) => {
     this.setState((oldStateObject) => {
-      console.log(oldStateObject);
       return {
         checkedEnglish: !oldStateObject.checkedEnglish,
         checkboxEnglish: 'Yes',
@@ -203,10 +205,7 @@ state = {
 
 const mapStateToProps = (state, props) => {
   return {
-    reviewCompare: state.reviewReducer.map((review) => {
-      console.log(review.companyName);
-      return review.companyName;
-    }),
+    reviewCompare: state.reviewReducer,
     checkboxVal: false,
   };
 };
