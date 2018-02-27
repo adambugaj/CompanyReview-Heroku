@@ -1,28 +1,34 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import LoginHeader from './test/LoginHeader';
+import {DashboardButtonComponent} from './test/LoginHeader';
 import ReviewList from './create-page/ReviewList';
+import FindReviewFilter from './filters/FindReviewFilter';
 
 const CompanyList = (props) => {
-  console.log(props.review);
+  console.log(props.filters.filtersReducer.text);
   return (
     <div>
-      <LoginHeader />
+      <DashboardButtonComponent />
+      <FindReviewFilter />
       {props.review.map((rev) => {
-        return <ReviewList key={rev.q1 + Math.random()}{...rev} />
+        if (props.filters.filtersReducer.text === rev.companyName) {
+          return <ReviewList key={rev.q1 + Math.random()}{...rev} />
+        } else {
+          return <ReviewList key={rev.q1 + Math.random()}{...rev} />
+        }
       })}
       {
         // Check if a review is added if not, prevent from adding an empty review
         !props.review && <ReviewList />
       }
-      <button className="review-form_mobile" onClick={() => {props.history.push('/')}}>Dashboard</button>
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    review: state.reviewReducer
+    review: state.reviewReducer,
+    filters: state
   };
 }
 

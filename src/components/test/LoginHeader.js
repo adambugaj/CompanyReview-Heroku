@@ -25,3 +25,21 @@ export default () => {
       </MuiThemeProvider>
     );
 };
+
+const DashboardButton = (props) => {
+  return (
+    <div className="createLogin">
+      <Link to="/"><RaisedButton style={style} className="createLogin createLogin__button" label="DASHBOARD"/></Link>
+    </div>
+  );
+};
+
+export const DashboardButtonComponent = () => {
+  return (
+    <MuiThemeProvider>
+      <div>
+        <DashboardButton />
+      </div>
+    </MuiThemeProvider>
+  )
+}

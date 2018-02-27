@@ -181,14 +181,14 @@ state = {
                 checked={this.state.checkedEnglish}
                 onCheck={this.updateCheck.bind(this)}
                 value='1'
-                className="checkbox-container"
+                className="checkbox-container review-form_mobile"
               />
               <Checkbox
                 label="German required"
                 checked={this.state.checkedForGerman}
                 onCheck={this.updateCheckForGerman.bind(this)}
                 value='1'
-                className="checkbox-container"
+                className="checkbox-container review-form_mobile"
               />
 
               <p>Review Score: {this.state.shortNote}</p>
