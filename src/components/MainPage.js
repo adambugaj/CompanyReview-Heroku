@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import ReviewList from './create-page/ReviewList';
 import UserDashboard from '.././components/dashboard/UserDashboard';
 import LoginHeader from './test/LoginHeader';
 import CreateReviewButton from './create-page/CreateReviewButton';
@@ -15,13 +14,6 @@ const MainPage = (props) => {
         <LoginHeader />
         <h1>{}</h1>
         <NumberInterviews />
-        { props.review.map((rev) => {
-          return <ReviewList key={rev.q1 + Math.random()}{...rev} />
-        })}
-        {
-          // Check if a review is added if not, prevent from adding an empty review
-          !props.review && <ReviewList/>
-        }
         <CreateReviewButton />
       </div>
     )
