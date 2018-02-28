@@ -3,19 +3,16 @@ import { connect } from 'react-redux';
 import {DashboardButtonComponent} from './test/LoginHeader';
 import ReviewList from './create-page/ReviewList';
 import FindReviewFilter from './filters/FindReviewFilter';
+import reviewSelector from '../selectors/reviewSelector';
 
 const CompanyList = (props) => {
-  console.log(props.filters.filtersReducer.text);
+  console.log(props.review);
   return (
     <div>
       <DashboardButtonComponent />
       <FindReviewFilter />
       {props.review.map((rev) => {
-        if (props.filters.filtersReducer.text === rev.companyName) {
           return <ReviewList key={rev.q1 + Math.random()}{...rev} />
-        } else {
-          return <ReviewList key={rev.q1 + Math.random()}{...rev} />
-        }
       })}
       {
         // Check if a review is added if not, prevent from adding an empty review
@@ -27,8 +24,7 @@ const CompanyList = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    review: state.reviewReducer,
-    filters: state
+    review: reviewSelector(state.reviewReducer, state.filtersReducer)
   };
 }
 
