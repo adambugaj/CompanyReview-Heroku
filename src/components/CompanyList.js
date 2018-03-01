@@ -6,12 +6,16 @@ import FindReviewFilter from './filters/FindReviewFilter';
 import reviewSelector from '../selectors/reviewSelector';
 
 const CompanyList = (props) => {
-  console.log(props.review);
+  let array = [1,2,2,3]
+  console.log([...new Set(array)]);
+
+  console.log(array);
   return (
     <div>
       <DashboardButtonComponent />
       <FindReviewFilter />
       {props.review.map((rev) => {
+
           return <ReviewList key={rev.q1 + Math.random()}{...rev} />
       })}
       {

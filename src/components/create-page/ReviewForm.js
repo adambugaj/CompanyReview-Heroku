@@ -31,12 +31,20 @@ class ReviewForm extends React.Component {
       shortNote: props.review ? props.review.shortNote : '',
       checkboxEnglish: props.review ? props.review.checkboxEnglish : 'No',
       //checkedEnglish: props.review ? props.review.checkboxEnglish : false,
-      checkedEnglish: (props.review === undefined) && false,
-      setCheckbox: this.setCheckbox(),
+      checkedEnglish: props.review ? props.review.checkedEnglish : false,
       checkboxGerman: props.review ? props.review.checkboxGerman : 'No',
+      checkedGerman: props.review ? props.review.checkedGerman : false,
       companyNameValid: props.review ? props.review.companyNameValid : true
     };
+  //  this.toggleCheckboxEnglish = this.toggleCheckboxEnglish.bind(this);
   };
+
+  // Shortage to make function - toggleCheckboxEnglish() {}
+  // toggleCheckboxEnglish = (oldStateObject) => {
+  //   const changeValue = this.state.checkboxEnglish === 'No' ? false : true;
+  //   console.log(oldStateObject);
+  //   this.setState({ checkedEnglish: changeValue });
+  // }
 
   // Functions to handle every question in a review form
   onCompanyName = (e) => {
@@ -102,24 +110,24 @@ class ReviewForm extends React.Component {
     // });
 
 
-state = {
-  checkedEnglish: false
-}
+
 // we use bind to connect data with a component
-  updateCheck = (props) => {
+  updateCheck = () => {
     this.setState((oldStateObject) => {
+      console.log(oldStateObject);
       return {
         checkedEnglish: !oldStateObject.checkedEnglish,
-        checkboxEnglish: 'Yes',
+        checkboxEnglish: oldStateObject.checkedEnglish === false ? 'Yes' : 'No'
       }
       }
     );
   }
   updateCheckForGerman = () => {
     this.setState((oldStateObject) => {
+      console.log(oldStateObject);
       return {
-        checkedForGerman: !oldStateObject.checkedForGerman,
-        checkboxGerman: 'Yes',
+        checkedGerman:!oldStateObject.checkedGerman,
+        checkboxGerman: oldStateObject.checkedGerman === false ? 'Yes' : 'No'
       }
     })
   }
@@ -181,13 +189,13 @@ state = {
               <Checkbox
                 label="English enviroment"
                 checked={this.state.checkedEnglish}
-                onCheck={this.updateCheck.bind(this)}
+                onCheck={this.updateCheck}
                 value='1'
                 className="checkbox-container review-form_mobile"
               />
               <Checkbox
                 label="German required"
-                checked={this.state.checkedForGerman}
+                checked={this.state.checkedGerman}
                 onCheck={this.updateCheckForGerman.bind(this)}
                 value='1'
                 className="checkbox-container review-form_mobile"

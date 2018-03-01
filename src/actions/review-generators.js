@@ -7,7 +7,8 @@ const addReview = ({
   shortNote = '',
   checkboxEnglish = '',
   checkedEnglish = false,
-  checkboxGerman = ''
+  checkboxGerman = '',
+  checkedGerman = false
 } = {}
 ) => ({
   type: "ADD_REVIEW",
@@ -19,7 +20,8 @@ const addReview = ({
     shortNote,
     checkboxEnglish,
     checkedEnglish,
-    checkboxGerman
+    checkboxGerman,
+    checkedGerman
   }
 });
 
