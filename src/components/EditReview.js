@@ -17,7 +17,7 @@ const EditReview = (props, state) => {
         review={props.review}
         onSubmit={(review) => {
           props.dispatch(editReview(props.review.companyName, review))
-          props.history.push('/')
+          props.history.push('/companies')
           }}
       />
     </div>

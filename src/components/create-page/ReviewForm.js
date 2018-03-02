@@ -10,10 +10,6 @@ import { editReview } from '../../actions/review-generators';
 // Component for creating new company review
 class ReviewForm extends React.Component {
 
-  setCheckbox = () => {
-    return false;
-  }
-
   constructor(props) {
     super(props);
     // Object for storing answers
@@ -33,8 +29,7 @@ class ReviewForm extends React.Component {
       //checkedEnglish: props.review ? props.review.checkboxEnglish : false,
       checkedEnglish: props.review ? props.review.checkedEnglish : false,
       checkboxGerman: props.review ? props.review.checkboxGerman : 'No',
-      checkedGerman: props.review ? props.review.checkedGerman : false,
-      companyNameValid: props.review ? props.review.companyNameValid : true
+      checkedGerman: props.review ? props.review.checkedGerman : false
     };
   //  this.toggleCheckboxEnglish = this.toggleCheckboxEnglish.bind(this);
   };
@@ -94,7 +89,8 @@ class ReviewForm extends React.Component {
           shortNote:this.state.shortNote,
           checkboxEnglish:this.state.checkboxEnglish,
           checkedEnglish: this.state.checkedEnglish,
-          checkboxGerman:this.state.checkboxGerman
+          checkboxGerman:this.state.checkboxGerman,
+          checkedGerman: this.state.checkedGerman
         });
   };
 
@@ -112,7 +108,7 @@ class ReviewForm extends React.Component {
 
 
 // we use bind to connect data with a component
-  updateCheck = () => {
+  updateCheckEnglish = () => {
     this.setState((oldStateObject) => {
       console.log(oldStateObject);
       return {
@@ -122,11 +118,11 @@ class ReviewForm extends React.Component {
       }
     );
   }
-  updateCheckForGerman = () => {
+  updateCheckGerman = () => {
     this.setState((oldStateObject) => {
       console.log(oldStateObject);
       return {
-        checkedGerman:!oldStateObject.checkedGerman,
+        checkedGerman: !oldStateObject.checkedGerman,
         checkboxGerman: oldStateObject.checkedGerman === false ? 'Yes' : 'No'
       }
     })
@@ -189,14 +185,14 @@ class ReviewForm extends React.Component {
               <Checkbox
                 label="English enviroment"
                 checked={this.state.checkedEnglish}
-                onCheck={this.updateCheck}
+                onCheck={this.updateCheckEnglish}
                 value='1'
                 className="checkbox-container review-form_mobile"
               />
               <Checkbox
                 label="German required"
                 checked={this.state.checkedGerman}
-                onCheck={this.updateCheckForGerman.bind(this)}
+                onCheck={this.updateCheckGerman}
                 value='1'
                 className="checkbox-container review-form_mobile"
               />
@@ -213,8 +209,7 @@ class ReviewForm extends React.Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    reviewCompare: state.reviewReducer,
-    checkboxVal: false,
+    reviewCompare: state.reviewReducer
   };
 };
 
