@@ -1,6 +1,7 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reviewReducer from '../reducers/reviewReducer';
 import filtersReducer from '../reducers/filters';
+import thunk from 'redux-thunk';
 
 // Store creation - stores function
 export default () => {
@@ -8,7 +9,8 @@ export default () => {
     combineReducers({
       reviewReducer: reviewReducer,
       filtersReducer: filtersReducer
-    })
+    }),
+    applyMiddleware(thunk)
   );
   return store;
 };

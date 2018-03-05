@@ -7,6 +7,7 @@ import CRAppRouter from './routers/CRAppRouter';
 import configureStore from './store/configureStore';
 import { removeReview } from './actions/review-generators';
 import './styles/styles.scss';
+import './firebase/firebase';
 
 const store = configureStore();
 console.log('test');
